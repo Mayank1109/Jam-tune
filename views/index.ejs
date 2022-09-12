@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.ejs'); %>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.17/dist/css/splide.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); %>
+    <section
+      id="image-carousel"
+      class="splide container"
+      aria-label="Beautiful Images"
+    >
+      <h1 class="image-carousel--heading">Trending</h1>
+      <div class="splide__track">
+        <ul class="splide__list">
+          <% for(let i=0; i<20; i++) { %>
+
+          <li class="splide__slide">
+            <div class="box">
+              <div class="card">
+                <img src="<%= showTrendingSongs[i].thumbnail %>" alt="" />
+                <div class="overlay">
+                  <button class="name">
+                    <%= showTrendingSongs[i].songName %>
+                  </button>
+                </div></img>
+
+             
+              </div>
+            </div>
+          </li>
+
+          <% } %>
+        </ul>
+      </div>
+    </section>
+    <script>
+      // var splide = new Splide( '.splide', {
+      // perPage: 6,
+      // rewind : true,
+      // } );
+
+      // splide.mount();
+
+      new Splide(".splide", {
+        perPage: 4,
+        breakpoints: {
+          1200: {
+            perPage: 2,
+          },
+          700: {
+            perPage: 1,
+          },
+        },
+      }).mount();
+    </script>
+
+    <!-- alert message -->
+
+    <% if(alertMessage) { %>
+    <script>
+      alert("Please Login First!");
+    </script>
+    <% } %>
+  </body>
+</html>
