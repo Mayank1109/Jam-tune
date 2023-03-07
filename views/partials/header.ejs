@@ -1,91 +1,114 @@
 <div class="overlay" id="overlay"></div>
 <header class="header container">
-    <nav class="navbar">
-        <div style="display: flex; justify-content:center; align-items:center">
-            <div class="navbar__menu grid-center pointer" id="openMenu">
-                <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#706F8E" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-            </div>
-            <form action="/" method="POST">
-                <button type="submit" class="pointer">
-                    
-                </button>
-            </form>
-        </div>
-        <ul class="navbar__sidebar closed" id="sideBar">
-            <h2 class="sidebar-info"> <%= user %> </h2>
-            <li>
-                <form action="/" method="POST">
-                    <button type="submit" class="pointer" id="home">
-                        Home
-                    </button>
-                </form>
-            </li>
-            <!-- <li>
-                <form action="/about_us" method="POST">
-                    <button type="submit" class="pointer" id="aboutUs">
-                        About us
-                    </button>
-                </form>
-            </li>
-            <li>
-                <form action="/contact_us" method="POST">
-                    <button type="submit" class="pointer" id="contactUs">
-                        Contact us
-                    </button>
-                </form>
-            </li> -->
-            <li>
-                <form action="/favorites" method="POST">
-                    <input class="hidden" type="text" name="favorites" id="favorites" value="favorites">
-                    <button type="submit" class="pointer" id="favButton">
-                        Favorites
-                    </button>
-                </form>
-            </li>
-            <div class="navbar__sidebar_close pointer grid-center" id="closeMenu">
-                <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#22222E" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/></svg>
-            </div>
-            <a href="/login" class="sidebar-logout">
-                <% if (loggedin) { %>
-                    logout
-                <%} else { %>
-                    login
-                <%} %>
-            </a>
-        </ul>
-    </nav>
-    <div class="header__searchBox" id="headerSearchBox">
-        <form action="/search" method="POST" class="flex-center">
-            <input type="text" name="search" class="search" id="search" placeholder="Search" autocomplete="off" onfocus="addSearchBoxLight()" onfocusout="removeSearchBoxLight()">
-            <button type="submit" class="search-btn grid-center btn-reset pointer" id="searchBtn">
-                <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#706F8E" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
-            </button>
+  <nav class="navbar">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div class="navbar__menu grid-center pointer" id="openMenu">
+        <svg width="32" height="32" viewBox="0 0 24 24">
+          <path
+            fill="#706F8E"
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+          />
+        </svg>
+      </div>
+      <form action="/" method="POST">
+        <button type="submit" class="pointer">
+          <img width="120px" src="img/brand.svg" alt="Jamtune" />
+        </button>
+      </form>
+    </div>
+    <ul class="navbar__sidebar closed" id="sideBar">
+      <h2 class="sidebar-info"><%= user %></h2>
+      <li>
+        <form action="/" method="POST">
+          <button type="submit" class="pointer" id="home">Home</button>
         </form>
-    </div>
-    <div class="header__user">
-        <!--* show information about user -->
-        <div class="header__user--container">
-            <div class="user-icon grid-center pointer">
-                <!--* user icon -->
-                <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#706F8E" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            </div>
-            <div class="user-info">
-                <!--* user name and log out button -->
-                <span id="loggedUserName">
-                    <%= user %>
-                </span>
-                <div class="flex-center pointer" id="logOutBtn">
-                    <a href="/login" class="log-out"> 
-                        <!--* log out icon -->
-                        <% if (loggedin) { %>
-                            logout
-                            <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9a2 2 0 0 1 2 2v2h-2V4H6v16h9v-2h2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path fill="currentColor" d="M16.09 15.59L17.5 17l5-5l-5-5l-1.41 1.41L18.67 11H9v2h9.67z"/></svg>
-                        <%} else { %>
-                            login
-                        <%} %>
-                    </a>
-                </div>
-            </div>
+      </li>
+      <li>
+        <form action="/favorites" method="POST">
+          <input
+            class="hidden"
+            type="text"
+            name="favorites"
+            id="favorites"
+            value="favorites"
+          />
+          <button type="submit" class="pointer" id="favButton">
+            Favorites
+          </button>
+        </form>
+      </li>
+      <div class="navbar__sidebar_close pointer grid-center" id="closeMenu">
+        <svg width="32" height="32" viewBox="0 0 24 24">
+          <path
+            fill="#b0afbe"
+            d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+          />
+        </svg>
+      </div>
+      <a href="/login" class="sidebar-logout">
+        <% if (loggedin) { %> logout <%} else { %> login <%} %>
+      </a>
+    </ul>
+  </nav>
+  <div class="header__searchBox" id="headerSearchBox">
+    <form action="/search" method="POST" class="flex-center">
+      <input
+        type="text"
+        name="search"
+        class="search"
+        id="search"
+        placeholder="Search"
+        autocomplete="off"
+        onfocus="addSearchBoxLight()"
+        onfocusout="removeSearchBoxLight()"
+      />
+      <button
+        type="submit"
+        class="search-btn grid-center btn-reset pointer"
+        id="searchBtn"
+      >
+        <svg width="32" height="32" viewBox="0 0 24 24">
+          <path
+            fill="#706F8E"
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+  <div class="header__user">
+    <!--* show information about user -->
+    <div class="header__user--container">
+      <div class="user-icon grid-center pointer">
+        <!--* user icon -->
+        <svg width="32" height="32" viewBox="0 0 24 24">
+          <path
+            fill="#706F8E"
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      <div class="user-info">
+        <!--* user name and log out button -->
+        <span id="loggedUserName"> <%= user %> </span>
+        <div class="flex-center pointer" id="logOutBtn">
+          <a href="/login" class="log-out">
+            <!--* log out icon -->
+            <% if (loggedin) { %> logout
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M6 2h9a2 2 0 0 1 2 2v2h-2V4H6v16h9v-2h2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
+              />
+              <path
+                fill="currentColor"
+                d="M16.09 15.59L17.5 17l5-5l-5-5l-1.41 1.41L18.67 11H9v2h9.67z"
+              />
+            </svg>
+            <%} else { %> login <%} %>
+          </a>
         </div>
+      </div>
     </div>
+  </div>
 </header>

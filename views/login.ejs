@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('partials/head.ejs'); %>
-</head>
-<body>
+  </head>
+  <body>
     <div class="login-div">
-        <form action="/login" method="POST">
-            <h1>Login</h1>
-            <div>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required placeholder="xyz@email.com" autocomplete="off">
-            </div>
-            <div>
-                <label for="name">Password</label>
-                <input type="password" name="password" id="password" required placeholder="Password">
-            </div>
-            <input type="submit" value="Login" id="loginBtn">
-            <a href="/signup">New Here? Register Here</a>
-    
-            <span><%= message %></span>
-        </form>
+      <form action="/login" method="POST">
+        <h1>Login</h1>
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder="xyz@email.com"
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <label for="name">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            placeholder="Password"
+          />
+        </div>
+        <input type="submit" value="Login" id="loginBtn" />
+        <a href="/signup">New Here? Register Here</a>
+
+        <span><%= message %></span>
+      </form>
     </div>
-</body>
+  </body>
 </html>
